@@ -1,0 +1,2 @@
+bh1750.py=https://raw.githubusercontent.com/PinkInk/upylib/master/bh1750/bh1750/__init__.py
+sht30.py=https://raw.githubusercontent.com/rsc1975/micropython-sht30/master/sht30.py
