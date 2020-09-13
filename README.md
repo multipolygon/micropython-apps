@@ -6,7 +6,7 @@ This project includes a lib for registering devices with Home Assistant via the 
 
 https://www.home-assistant.io/docs/mqtt/discovery
 
-See [lib/home_assistant](./lib/home_assistant)
+See `src/lib/home_assistant`.
 
 ## Use
 
@@ -20,7 +20,7 @@ For example:
 
 or another example:
 
-    from app.env_sensor import main
+    from app.temp_sensor import main
 
 ## Install
 
@@ -74,6 +74,8 @@ And hit [CTRL+D] to reboot device (which will then automatically run `main.py`).
 
 https://github.com/espressif/esptool
 
+https://github.com/dhylands/rshell
+
 https://github.com/wendlers/mpfshell
 
 http://micropython.org/webrepl/
@@ -114,5 +116,6 @@ Serial port /dev/tty.usbserial-1420
 Connecting........_____....._____....._____....._____....._____....._____....._
 ```
 
-...tap the device's reset button on the first `_` or `.` of the group.
+...then hold down the reset button and release it to time with the first _ (underscore).
+
 
