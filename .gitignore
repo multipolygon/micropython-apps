@@ -6,3 +6,10 @@ secrets.json
 \#*\#
 __pycache__
 .#*
+
+# WIP:
+src/app/env_sensor/
+src/app/flood_alarm/
+src/app/flow_rate/
+src/app/light_switch/
+src/app/valve/
