@@ -27,12 +27,12 @@ class Net():
 
             opt = dict(exp_aft = config.FREQ * 2.5)
 
-            if hasattr(state, 'temp'):
-                mqtt.add('temp', Temperature, **opt).set_state(state['temp'])
+            if state.get('temp'):
+                mqtt.add('temp', Temperature, **opt).set_state(state.get('temp'))
                 mqtt.set_attr("freq", config.FREQ)
 
-            if hasattr(state, 'humid'):
-                mqtt.add('humid', Humidity, **opt).set_state(state['humid'])
+            if state.get('humid'):
+                mqtt.add('humid', Humidity, **opt).set_state(state.get('humid'))
 
             mqtt.do_pub_cfg = reset_cause() != DEEPSLEEP_RESET or ticks_us() % 10 == 0
 
