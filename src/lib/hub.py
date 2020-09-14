@@ -44,11 +44,8 @@ class Hub():
     def start(self):
         self.print(self.__class__, 'start')
         for i in set((i for _, s in self.obj for i in s)):
-            print(i, '=>')
-            try:
-                print(getattr(self, i))
-            except:
-                print('-')
+            if hasattr(self, i):
+                print(i, '=>', getattr(self, i))
         self.activ = True
         for obj, _ in self.obj:
             if hasattr(obj, 'start'):
