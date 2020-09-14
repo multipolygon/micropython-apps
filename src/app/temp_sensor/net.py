@@ -23,7 +23,7 @@ class Net():
         if wifi.is_connected():
             print(wifi.mac(), wifi.ip(), wifi.rssi())
 
-            mqtt = MQTT(config.NAME, secrets, uid=UID, led=led, version=config.VERSION)
+            mqtt = MQTT(config.NAME, secrets, uid=UID, led=led)
 
             opt = dict(exp_aft = config.FREQ * 2.5)
 

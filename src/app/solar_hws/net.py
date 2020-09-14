@@ -17,7 +17,7 @@ class Net():
         self.update_on = ('mode', 'tank_target_temp', 'tank_temp', 'pump', 'solar_temp')
         led = StatusLED(gpio=config.LED_GPIO)
         wifi.connect(secrets.WIFI_NAME, secrets.WIFI_PASSWORD, led=led)
-        self.mqtt = MQTT(config.NAME, secrets, uid=UID, led=led, version=config.VERSION)
+        self.mqtt = MQTT(config.NAME, secrets, uid=UID, led=led)
 
         ctl = self.mqtt.add('Controller', Climate, key = 'ctl', max = config.TANK_MAX_TEMP)
         temp = self.mqtt.add('Solar', Temperature, key = 'sol')

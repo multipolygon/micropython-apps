@@ -1,7 +1,6 @@
 from lib.esp.esp8266.wemos.d1mini import pinmap
 
 NAME = "Solar HWS"
-VERSION = "20-09-13"
 
 LED_GPIO = pinmap.LED
 SOLAR_GPIO = pinmap.D5

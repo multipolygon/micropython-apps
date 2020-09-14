@@ -12,12 +12,11 @@ import wifi
 UTF8 = 'utf-8'
 
 class MQTT():
-    def __init__(self, name, secrets, uid=None, led=None, version=''):
+    def __init__(self, name, secrets, uid=None, led=None):
         self.name = name
         self.secrets = secrets
         self.uid = uid
         self.led = led
-        self.version = version
         self.state = {}
         self.obj = []
         self.cfg = []
@@ -102,7 +101,6 @@ class MQTT():
             prim = prim,
             key = key,
             state = self.state,
-            version = self.version,
         )
         self.obj.append(obj)
         self.cfg.append(cfg)

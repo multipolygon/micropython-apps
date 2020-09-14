@@ -4,6 +4,11 @@ from wifi import mac
 UTF8 = 'utf-8'
 ATTR = 'attr'
 
+try:
+    from version import VERSION
+except:
+    VERSION = '-'
+
 class HA():
     # Home Assistant MQTT Discovery wrapper
     # See:
@@ -20,7 +25,7 @@ class HA():
     COMPNT = 'generic'
     JSON_NS = None
 
-    def __init__(self, prefix=None, uid=None, dev_name=None, name=None, prim=False, key=None, version='', state={}):
+    def __init__(self, prefix=None, uid=None, dev_name=None, name=None, prim=False, key=None, state={}):
         # prefix: MQTT prefix
         # uid: Device unique id
         # dev_name: Device name
@@ -36,7 +41,6 @@ class HA():
         self.key = key if key else self.name.lower().replace(' ', '_')
         self.state = state
         self.set_attr()
-        self.version = version
 
     def set_state(self, val, key=None):
         # Set State
@@ -161,7 +165,7 @@ class HA():
         # HA will use this to group all components that belong to the same device and prevent duplicates.
         return dict(
             mf = self.MANUF,
-            sw = uname().release + '/' + self.version,
+            sw = uname().release + '/' + VERSION,
             mdl = self.dev_name,
             ids = self.uid,
             name = self.ful_dev_name(),
