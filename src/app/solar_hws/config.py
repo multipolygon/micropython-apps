@@ -1,7 +1,6 @@
 from lib.esp8266.wemos.d1mini import pinmap
 
 NAME = "Solar HWS"
-UID = "Main"
 VERSION = "20-09-13"
 
 LED_GPIO = pinmap.LED
@@ -56,10 +55,10 @@ def pump_boost(state):
         return PUMP_ON
 
 def solar_adc_to_temp(adc):
-    return (adc - 36.1997) / 6.26956 ## (adc - 288.6) / 6.38
+    return (adc - 288.6) / 6.38
 
 def tank_adc_to_temp(adc):
-    return (adc - 36.1997) / 6.26956 ## (adc - 285.54) / 5.269
+    return (adc - 285.54) / 5.269
 
 RETAIN = (
     'tank_target_temp',

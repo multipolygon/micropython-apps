@@ -23,15 +23,16 @@ class Net():
         if wifi.is_connected():
             print(wifi.mac(), wifi.ip(), wifi.rssi())
 
-            mqtt = MQTT(config.NAME, secrets, uid = UID, led=led, version=config.VERSION)
+            mqtt = MQTT(config.NAME, secrets, uid=UID, led=led, version=config.VERSION)
 
             opt = dict(exp_aft = config.FREQ * 2.5)
 
-            mqtt.add('temp', Temperature, **opt).set_state(state['temp'])
+            if hasattr(state, 'temp'):
+                mqtt.add('temp', Temperature, **opt).set_state(state['temp'])
+                mqtt.set_attr("freq", config.FREQ)
 
-            mqtt.add('humid', Humidity, **opt).set_state(state['humid'])
-
-            mqtt.set_attr("freq", config.FREQ)
+            if hasattr(state, 'humid'):
+                mqtt.add('humid', Humidity, **opt).set_state(state['humid'])
 
             mqtt.do_pub_cfg = reset_cause() != DEEPSLEEP_RESET or ticks_us() % 10 == 0
 

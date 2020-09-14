@@ -171,7 +171,8 @@ class MQTT():
 
     def pub_state(self):
         gc_collect()
-        return self.pub_json(self.obj[0].base_tpc(), self.state)
+        if len(self.obj) != 0:
+            return self.pub_json(self.obj[0].base_tpc(), self.state)
         gc_collect()
 
     def sub(self, tpc, cb):
