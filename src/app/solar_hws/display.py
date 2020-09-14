@@ -1,4 +1,4 @@
-from esp8266.wemos.d1mini.oled import OLED
+from esp.esp8266.wemos.d1mini.oled import OLED
 from utime import sleep
 import wifi
 
@@ -7,15 +7,15 @@ class Display():
         self.update_on = ('mqtt', 'solar_temp', 'tank_temp', 'tank_target_temp', 'mode', 'pump')
         self.oled = OLED()
         self.mqtt(state)
-        
+
     def mqtt(self, state):
         self.oled.write_lines(
             'WIFI:',
             ('%8d' % wifi.rssi()) if wifi.is_connected() else ('%8s' % '--'),
             'MQTT:',
             '%8s' % ('OK' if state.mqtt else '--'),
-        )            
-    
+        )
+
     def update(self, state, changed):
         if 'mqtt' in changed:
             self.mqtt(state)

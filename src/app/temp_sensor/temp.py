@@ -1,5 +1,5 @@
 from utime import sleep
-import esp8266.wemos.d1mini.pinmap as pinmap
+import esp.esp8266.wemos.d1mini.pinmap as pinmap
 
 class Temp():
     def __init__(self, state):
